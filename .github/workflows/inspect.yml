@@ -1,0 +1,17 @@
+name: build a workflow that inspects the runner
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the code
+      uses: actions/checkout@v4
+    - name: print the runner kernel details  and the repository file listing
+      run: |
+        uname -a
+        echo "Repository files:"
+        find . -type f        
+    - name: Count repository files
+      run: |
+        echo "Number of files:"
+        find . -type f | wc -l
