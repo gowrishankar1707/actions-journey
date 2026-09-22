@@ -1,0 +1,8 @@
+name: a workflow that describes its own run
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: string format
+      run: echo "${{ format('build-{0}-{1}', github.run_number, github.ref_name) }}"
