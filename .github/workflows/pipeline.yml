@@ -1,0 +1,23 @@
+name: A pipeline with dependent jobs
+on: push      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.gowr.outputs.version }}
+    steps:
+      - name: Compute version
+        id: gowr
+        run: echo "version=2.0.3" >> "$GITHUB_OUPUT"
+    
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: echo "running tests"
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build,test]
+    steps:
+      - name: Printing the build version here in deploy build 
+        run: echo "${{ needs.build.outputs.version }}"
