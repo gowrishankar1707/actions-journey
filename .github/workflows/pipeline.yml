@@ -17,7 +17,7 @@ jobs:
       - run: echo "running tests"
   deploy:
     runs-on: ubuntu-latest
-    needs: [build,test]
+    needs: [build, test]
     steps:
       - name: Printing the build version here in deploy build 
         run: echo "${{ needs.build.outputs.version }}"
