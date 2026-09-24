@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Compute version
         id: gowr
-        run: echo "version=2.0.3" >> "$GITHUB_OUPUT"
+        run: echo "version=2.0.3" >> "$GITHUB_OUTPUT"
     
   test:
     runs-on: ubuntu-latest
