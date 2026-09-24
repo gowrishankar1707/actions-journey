@@ -1,0 +1,8 @@
+name: a deploy region the team can change without a commit
+on: push      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show the target region 
+        run: echo "Deploying to ${{ vars.DEPLOY_REGION }}"
