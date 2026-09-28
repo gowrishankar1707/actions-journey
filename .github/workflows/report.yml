@@ -1,0 +1,14 @@
+name: upload a build report as an artifact
+on: push      
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: write a date in a file
+        run: date > report.txt
+      - name: upload the artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-report
+          path: report.txt
+          retention-days: 5
