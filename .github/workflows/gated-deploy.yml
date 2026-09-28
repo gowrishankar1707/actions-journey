@@ -1,0 +1,11 @@
+name: gate a deploy step behind the main branch
+on: push      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: echo "Run tests"
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        run: echo "Run Deploy"
