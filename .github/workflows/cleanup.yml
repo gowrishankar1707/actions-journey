@@ -1,0 +1,13 @@
+name: keep cleanup running after a failure
+on: push      
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start test database
+        run: echo "Start test database"
+      - name: Flaky check
+        run: exit 1
+      - name: Stop test database
+        if: always()
+        run: echo "Stop test database"
