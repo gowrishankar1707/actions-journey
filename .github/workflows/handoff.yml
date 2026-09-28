@@ -1,0 +1,23 @@
+name: pass a file from one job to another
+on: push      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build the package
+        run: date > app.txt
+      - name: upload the package
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-package
+          path: app.txt
+  verify:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: download the package
+        uses: actions/download-artifact@v4
+        with:
+          name: app-package
+      - name: check the file status
+        run: test -f app.txt
