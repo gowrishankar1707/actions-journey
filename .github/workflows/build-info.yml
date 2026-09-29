@@ -1,0 +1,10 @@
+name: bundle the build-info steps into an action
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out the code
+        uses: actions/checkout@v4
+      - name: using composite actions
+        uses: ./.github/actions/build-info

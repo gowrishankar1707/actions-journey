@@ -1,0 +1,9 @@
+name: bundle the build-info steps into an action
+description: print branch, commit
+runs:
+  using: composite
+  steps:
+    - run: echo " Branch $GITHUB_REF_NAME"
+      shell: bash
+    - run: echo " commit $GITHUB_SHA"
+      shell: bash 
