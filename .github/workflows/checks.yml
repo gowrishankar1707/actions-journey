@@ -1,0 +1,11 @@
+name: split the pipeline into caller and callee 1
+on:
+  workflow_call:       
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the Code
+        uses: actions/checkout@v4
+      - name: printing something
+        run: echo "ching chong"
