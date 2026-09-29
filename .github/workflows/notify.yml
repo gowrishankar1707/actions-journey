@@ -1,0 +1,16 @@
+name: A reusable workflow that takes an input and a secret
+on:
+  workflow_call:
+    inputs:
+      environment:
+        type: string
+        required: true
+    secrets:
+      NOTIFY_TOKEN:
+        required: true
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing the inputs
+        run: echo "${{ inputs.environment }}"
