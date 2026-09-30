@@ -1,0 +1,12 @@
+name: bundle the build-info steps into an action
+description: Print the app name
+inputs:
+  app-name:
+    description: name for the app
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: printing the app name
+      run: echo " app name is ${{ inputs.app-name }}"
+      shell: bash 
