@@ -1,0 +1,12 @@
+name: harden a workflow
+permissions:
+  contents: read
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checking out the code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1    
+      - name: list the repository files
+        run: ls
