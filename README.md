@@ -1,2 +1,4 @@
+Markdown
+![Tidy](https://github.com/gowrishankar1707/actions-journey/workflows/tidy.yml/badge.svg)
+
 # actions-journey
-![tidy](https://github.com/gowrishankar1707/actions-journey/.github/workflows/tidy.yml/badge.svg)
